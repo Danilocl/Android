@@ -43,30 +43,39 @@ public class EventoDao extends BaseDAO {
 	public Evento createEvento(ResultSet rs) throws SQLException {
 
 		Evento e = new Evento();
-		e.setId(rs.getInt("id"));
-		e.setNome(rs.getString("nome"));
+		e.setId(rs.getInt("Evento_id"));
+		e.setNome(rs.getString("Evento_nome"));
 
 		return e;
 
 	}
 
-	public Evento updateEvento(ResultSet rs) throws SQLException {
-
-		Evento e = new Evento();
-		e.setId(rs.getInt("id"));
-		e.setNome(rs.getString("nome"));
-
-		return e;
-
+	public void update(Evento evento) throws SQLException {
+		Connection con = getConnection();
+		try {
+			PreparedStatement ps = con.prepareStatement("UPDATE evento SET nome = ? set WHERE id = ?");
+			ps.setString(1, evento.getNome());
+			ps.setInt(2, evento.getId());
+			ps.executeUpdate();
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	public Evento deleteEvento(ResultSet rs) throws SQLException {
-
-		Evento e = new Evento();
-		e.setId(rs.getInt("id"));
-		e.setNome(rs.getString("nome"));
-
-		return e;
+	public void deleteEvento(Evento evento) throws SQLException {
+		Connection con = getConnection();
+		try {
+			PreparedStatement ps = con.prepareStatement("DELETE FROM client WHERE cpf = ?");
+			ps.setString(1, evento.getNome());
+			ps.setInt(2, evento.getId());
+			ps.executeUpdate();
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 }
