@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                margin-top: 10%;
+                margin-left: 40%;
+                width:20%
+            }
+        </style>
+        <script src="script.js"> </script>
+    </head>
+    <body>
+        <div>
+            <form action="http://localhost:8080/JSON/Servlet1" method="get">
+                <label for="campoNome"> Nome</label>
+                <input type="text" name="campoNome" id="campoNome">
+                <br>
+                <br>
+                <label for="campoIdade"> Idade </label>
+                <input type="number" name="campoIdade" id="campoIdade">
+                <input type="submit" value="enviar">                
+
+            </form>
+
+            <br>
+            <br>
+
+            <label for="campoNome2"> Nome</label>
+            <input type="text" name="campoNome2" id="campoNome2">
+            <br>
+            <br>
+            <label for="campoIdade2"> Idade </label>
+            <input type="number" name="campoIdade2" id="campoIdade2">
+            <button onclick="enviar()">ENVIAR</button>
+
+        </div>
+    </body>
+</html>
